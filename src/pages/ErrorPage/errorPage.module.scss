@@ -1,0 +1,15 @@
+.noResultsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.innerContainer {
+    text-align: center;
+}
+
+.noResultsTextMessage {
+    color: #36344A;
+    font-weight: 100;
+    inline-size: 650px;
+}
