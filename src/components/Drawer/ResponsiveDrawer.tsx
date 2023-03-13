@@ -17,7 +17,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
 import "./responsive-drawer.styles.scss";
 import GetDrawerLinks from "../../moks/drawerLinks";
 import { Typography } from "@mui/material";
