@@ -161,18 +161,6 @@ export default function ResponsiveDrawer({ children }: Props) {
         <Divider />
 
         <div>
-          {/* <List>
-            {GetDrawerLinks().map((route) => (
-              <ListItem key={route.id} disablePadding>
-                <Link to={route.route} onClick={handleDrawerClose}>
-                  <ListItemButton>
-                    <ListItemText primary={route.name} />
-                  </ListItemButton>
-                </Link>
-              </ListItem>
-            ))}
-            
-          </List> */}
           <List>
             {GetDrawerLinks().map((route, index) => (
               <ListItem key={route.id} disablePadding>
@@ -183,19 +171,6 @@ export default function ResponsiveDrawer({ children }: Props) {
               </ListItem>
             ))}
           </List>
-
-          {/* <List>
-            {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List> */}
         </div>
       </Drawer>
       <Main className="main-container" open={open}>
