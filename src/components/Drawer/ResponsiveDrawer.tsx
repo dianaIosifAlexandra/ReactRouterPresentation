@@ -1,24 +1,16 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ListItem from "@mui/material/ListItem";
 import "./responsive-drawer.styles.scss";
-import GetDrawerLinks from "../../moks/drawerLinks";
 import { Typography } from "@mui/material";
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
@@ -34,7 +26,7 @@ export default function ResponsiveDrawer({ children }: Props) {
   //   const navigate = useNavigate();
 
   const drawerWidth = {
-    width: "243px",
+    width: "50px",
     "@media (max-width: 700px)": {
       width: "100%",
     },
@@ -47,19 +39,8 @@ export default function ResponsiveDrawer({ children }: Props) {
   }>(({ theme, open }) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: `-243px`,
-    "@media (max-width: 700px)": {
-      marginLeft: "-100%",
-    },
+    marginLeft: `-50px`,
     ...(open && {
-      transition: theme.transitions.create("margin", {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
       marginLeft: 0,
     }),
   }));
@@ -67,17 +48,9 @@ export default function ResponsiveDrawer({ children }: Props) {
   const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== "open",
   })<AppBarProps>(({ theme, open }) => ({
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
     ...(open && {
       width: `calc(100% - ${drawerWidth})`,
       marginLeft: `${drawerWidth}`,
-      transition: theme.transitions.create(["margin", "width"], {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
     }),
   }));
 
@@ -97,10 +70,6 @@ export default function ResponsiveDrawer({ children }: Props) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
-  //   const handleClickDrawerLink = (route: string) => {
-  //     navigate(route);
-  //   };
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -158,19 +127,6 @@ export default function ResponsiveDrawer({ children }: Props) {
           </div>
         </DrawerHeader>
         <Divider />
-
-        <div>
-          <List>
-            {GetDrawerLinks().map((route, index) => (
-              <ListItem key={route.id} disablePadding>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={route.name} />
-              </ListItem>
-            ))}
-          </List>
-        </div>
       </Drawer>
       <Main className="main-container" open={open}>
         <div className="content-container">{children}</div>
